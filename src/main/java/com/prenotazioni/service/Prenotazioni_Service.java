@@ -3,7 +3,6 @@ package com.prenotazioni.service;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Service;
 
 import com.prenotazioni.model.Edificio;
@@ -27,15 +26,22 @@ public class Prenotazioni_Service {
     private ObjectProvider<Postazione> fakePostazioneProvider;
     @Autowired
     @Qualifier("FakeEdificio")
-    private ObjectProvider<User> fakeEdificioProvider;
+    private ObjectProvider<Edificio> fakeEdificioProvider;
     @Autowired
     @Qualifier("FakeUtente")
     private ObjectProvider<Utente> fakeUtenteProvider;
 
-    public void FakePostazione() {
+    public void creaUtente() {
+	insertUtente(fakeUtenteProvider.getObject());
+    }
+
+    public void creaEdificio() {
+	insertEdificio(fakeEdificioProvider.getObject());
+    }
+
+    public void creaPostazione() {
 	insertPostazione(fakePostazioneProvider.getObject());
-	// insertUtente(FakeUtente.getObject());
-	// insertEdificio(FakeEdificio.getObject());
+
     }
 
     public void insertEdificio(Edificio e) {

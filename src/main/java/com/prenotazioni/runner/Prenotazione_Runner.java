@@ -7,18 +7,17 @@ import org.springframework.stereotype.Component;
 
 import com.prenotazioni.service.Prenotazioni_Service;
 
-//import com.jpac_project.service.UserService;
-
 @Component
 public class Prenotazione_Runner implements ApplicationRunner {
 
     @Autowired
-    Prenotazioni_Service pippo;
+    Prenotazioni_Service opp;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 	System.out.println("Run...");
-	pippo.FakePostazione();
+	opp.creaPostazione();
+
     }
 
 }

@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 
 import com.github.javafaker.Faker;
@@ -13,6 +14,7 @@ import com.prenotazioni.model.Tipo;
 import com.prenotazioni.model.Utente;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class Prenotazioni_config {
     @Bean("postazioneCrea")
     @Scope("prototype")
@@ -35,7 +37,7 @@ public class Prenotazioni_config {
 
     @Bean("FakePostazione")
     @Scope("prototype")
-    public Postazione fakePostazione() {
+    public Postazione fakePostazionee() {
 	Faker fake = Faker.instance(new Locale("it-IT"));
 	Postazione p = new Postazione();
 	p.setDescrizionePostazione(fake.funnyName().name());

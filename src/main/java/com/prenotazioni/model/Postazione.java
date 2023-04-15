@@ -1,5 +1,6 @@
 package com.prenotazioni.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -23,10 +24,13 @@ public class Postazione {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "descrizionepostazione")
     private String descrizionePostazione;
     @Enumerated(EnumType.STRING)
     private Tipo tipo;
+    @Column(name = "numMaxoccupanti")
     private Integer numMaxOccupanti;
+    @Column(name = "edificio")
     private Edificio edificio;
 
 }

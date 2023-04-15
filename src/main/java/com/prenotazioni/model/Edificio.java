@@ -1,5 +1,6 @@
 package com.prenotazioni.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -16,8 +17,10 @@ import lombok.NoArgsConstructor;
 
 //@Builder
 public class Edificio {
-
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "indirizzo")
     private String indirizzo;
+    @Column(name = "citta")
     private String città;
 }
